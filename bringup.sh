@@ -11,4 +11,6 @@ echo "Go to: https://$PHPLDAP_IP"
 echo "Login DN: cn=admin,dc=example,dc=org"
 echo "Password: admin"
 
-docker run --name sftpthethings --hostname sftpthethings --link ldap-service:ldap-host -p 44022:22 --detach jbillo/sftpthethings:latest
+docker run --name sftpthethings --hostname sftpthethings --link ldap-service:ldap-host -p 44022:22 --detach \
+	--volume /sftproot:/opt/sftproot \
+	jbillo/sftpthethings:latest
