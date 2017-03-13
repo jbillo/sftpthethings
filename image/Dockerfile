@@ -8,7 +8,5 @@ COPY nsswitch.conf /etc/
 COPY common-session /etc/pam.d/
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-EXPOSE 22
-
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisor.conf"]
 
