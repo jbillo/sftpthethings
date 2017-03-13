@@ -10,5 +10,6 @@ COPY common-session /etc/pam.d/
 COPY supervisord.conf /etc/supervisord.conf
 COPY sshd_config /etc/ssh/sshd_config
 
+# VOLUME /sftproot
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
 
