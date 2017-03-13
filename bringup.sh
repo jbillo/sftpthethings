@@ -16,9 +16,13 @@ echo "Password: admin"
 
 docker run --name sftpthethings --hostname sftpthethings --link ldap-service:ldap-host -p 44022:22 --detach \
 	--volume /opt/sftproot:/sftproot \
+	--volume /mnt/drobo5n/TV:/sftproot/drobo5n/TV:ro \
+	--volume /mnt/drobo5n/Movies:/sftproot/drobo5n/Movies:ro \
+	--volume /mnt/DroboS/TV:/sftproot/DroboS/TV:ro \
+	--volume /mnt/DroboS/Movies:/sftproot/DroboS/Movies:ro \
 	jbillo/sftpthethings:latest || true
 
-docker run -d -p 8765:80 \
+docker run --name sspr-service -d -p 8765:80 \
 	--link ldap-service:ldap-host \
 	-v /opt/sspr/config.inc.php:/usr/share/self-service-password/conf/config.inc.php \
 	grams/ltb-self-service-password:0.8 || true

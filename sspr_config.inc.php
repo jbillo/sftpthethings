@@ -57,7 +57,7 @@ $shadow_options['update_shadowLastChange'] = false;
 # CRYPT
 # clear (the default)
 # This option is not used with ad_mode = true
-$hash = "clear";
+$hash = "crypt";
 
 # Local password policy
 # This is applied before directory password policy
@@ -132,7 +132,7 @@ $notify_on_change = false;
 
 ## SMS
 # Use sms
-$use_sms = true;
+$use_sms = false;
 # GSM number attribute
 $sms_attribute = "mobile";
 # Send SMS mail to address
